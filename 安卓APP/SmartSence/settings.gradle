@@ -1,0 +1,2 @@
+rootProject.name='smartsence'
+include ':app'

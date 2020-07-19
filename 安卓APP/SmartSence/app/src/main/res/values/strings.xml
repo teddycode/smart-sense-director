@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">智能景区导游系统</string>
+    <string name="title_home">景区</string>
+    <string name="title_notifications">景点</string>
+    <string name="def_jingqu_msg">七星景区是桂林市面积最大、历史最悠久、景致最多最集中的综合性景区。历史文化的精深博大在七星汇聚，自然与人文的完美融合在七星展现，堪称桂林山水与文化的缩影、是桂林山水精华景观的缩影。</string>
+</resources>

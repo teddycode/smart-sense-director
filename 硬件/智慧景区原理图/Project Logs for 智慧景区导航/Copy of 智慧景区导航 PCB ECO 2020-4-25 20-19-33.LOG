@@ -1,0 +1,16 @@
+Added Component: Designator=SW1(TSW DIP-6*6*6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "直插6x6轻触开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "试用产品"; Value = "如您满意请支持正品"; VariantName = "[No Variations]"
+Added Component: Designator=SW2(TSW DIP-6*6*6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "直插6x6轻触开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "试用产品"; Value = "如您满意请支持正品"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Pin To Net: NetName=SW1 Pin=SW1-4
+Added Pin To Net: NetName=GND Pin=SW2-2
+Added Pin To Net: NetName=SW2 Pin=SW2-4
+Added Member To Class: ClassName=智慧景区导航 Member=Component SW1 6x6x5
+Added Member To Class: ClassName=智慧景区导航 Member=Component SW2 6x6x5

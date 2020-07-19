@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SW2 Pin=SW2-1
+Removed Pin From Net: NetName=GND Pin=SW2-2
+Added Pin To Net: NetName=GND Pin=SW2-1
+Added Room: Name=ÖÇ»Û¾°Çøµ¼º½

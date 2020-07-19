@@ -1,0 +1,374 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Net Status Report</title>
+</head>
+<body onload="document.getElementById('radio_mm').click()"><img ALT="Altium" src="
+			file://D:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Net Status Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2020/4/25</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:20:50</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc" class="file"><acronym title="D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc">D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc</acronym></a></td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Units:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">
+<form><input type="radio" name="radio_units" id="radio_mm" onclick="changeUnits(this, 'mm')">mm<input type="radio" name="radio_units" id="radio_mil" onclick="changeUnits(this, 'mil')">mils</form>
+</td>
+</tr>
+</table><a name="IDB0BIMXZF4YMJLMTVRZITAJNULBGR3BDTJMSHEXNAD5K4BAV2PI2H"><table>
+<tr>
+<th class="column1">Nets</th>
+<th class="column2">Layer</th>
+<th class="column3">Length</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.472mil|Location2.X=4799mil|Location1.Y=576.214mil|Location2.Y=4208.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.472mil|Location2.X=4799mil|Location1.Y=576.214mil|Location2.Y=4208.528mil|Absolute=True">+3.3</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=398.961mil|Location2.Y=3777.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=398.961mil|Location2.Y=3777.465mil|Absolute=True">+5</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=84mil|Location2.Y=2227.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=84mil|Location2.Y=2227.465mil|Absolute=True">BUSY</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2378.528mil|Location1.Y=2740mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2378.528mil|Location1.Y=2740mil|Location2.Y=4183.528mil|Absolute=True">CLK</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2978.528mil|Location1.Y=3140mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2978.528mil|Location1.Y=3140mil|Location2.Y=4183.528mil|Absolute=True">CS1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3078.528mil|Location1.Y=1840mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3078.528mil|Location1.Y=1840mil|Location2.Y=4183.528mil|Absolute=True">CS2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2678.528mil|Location1.Y=3240mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2678.528mil|Location1.Y=3240mil|Location2.Y=4183.528mil|Absolute=True">DO</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=4889.006mil|Location1.Y=576.22mil|Location2.Y=4208.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=4889.006mil|Location1.Y=576.22mil|Location2.Y=4208.528mil|Absolute=True">GND</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2878.528mil|Location1.Y=2640mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2878.528mil|Location1.Y=2640mil|Location2.Y=4183.528mil|Absolute=True">MISO</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2478.528mil|Location1.Y=2540mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2478.528mil|Location1.Y=2540mil|Location2.Y=4183.528mil|Absolute=True">MOSI</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=3279mil|Location1.Y=576.214mil|Location2.Y=3977.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=3279mil|Location1.Y=576.214mil|Location2.Y=3977.465mil|Absolute=True">NetHC-1_3</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=3059mil|Location1.Y=576.214mil|Location2.Y=4077.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1437.535mil|Location2.X=3059mil|Location1.Y=576.214mil|Location2.Y=4077.465mil|Absolute=True">NetHC-1_4</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.006mil|Location2.X=4369mil|Location1.Y=71.1mil|Location2.Y=1185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3860.006mil|Location2.X=4369mil|Location1.Y=71.1mil|Location2.Y=1185mil|Absolute=True">NetLED1_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3924.006mil|Location1.Y=581.117mil|Location2.Y=2627.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3924.006mil|Location1.Y=581.117mil|Location2.Y=2627.465mil|Absolute=True">NetLED1_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.472mil|Location2.X=4208.528mil|Location1.Y=2381.433mil|Location2.Y=2463.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.472mil|Location2.X=4208.528mil|Location1.Y=2381.433mil|Location2.Y=2463.528mil|Absolute=True">NetLS1_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.472mil|Location2.X=4208.528mil|Location1.Y=2296.472mil|Location2.Y=2369.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.472mil|Location2.X=4208.528mil|Location1.Y=2296.472mil|Location2.Y=2369.748mil|Absolute=True">NetLS1_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3178.528mil|Location1.Y=1740mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2645mil|Location2.X=3178.528mil|Location1.Y=1740mil|Location2.Y=4183.528mil|Absolute=True">PEN</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2862.535mil|Location2.X=4310mil|Location1.Y=2452.535mil|Location2.Y=4208.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2862.535mil|Location2.X=4310mil|Location1.Y=2452.535mil|Location2.Y=4208.528mil|Absolute=True">PPS</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2578.528mil|Location1.Y=2440mil|Location2.Y=4183.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=2578.528mil|Location1.Y=2440mil|Location2.Y=4183.528mil|Absolute=True">RES</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=241.48mil|Location2.Y=2427.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=241.48mil|Location2.Y=2427.465mil|Absolute=True">RX1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=3369.006mil|Location1.Y=576.22mil|Location2.Y=3027.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=3369.006mil|Location1.Y=576.22mil|Location2.Y=3027.465mil|Absolute=True">RX2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4410mil|Location1.Y=2152.535mil|Location2.Y=4208.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4410mil|Location1.Y=2152.535mil|Location2.Y=4208.528mil|Absolute=True">RX3</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4616.142mil|Location1.Y=576.214mil|Location2.Y=3527.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4616.142mil|Location1.Y=576.214mil|Location2.Y=3527.465mil|Absolute=True">SW1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4021.142mil|Location1.Y=576.214mil|Location2.Y=3427.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4021.142mil|Location1.Y=576.214mil|Location2.Y=3427.465mil|Absolute=True">SW2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=162.74mil|Location2.Y=2327.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=595.006mil|Location2.X=3878.528mil|Location1.Y=162.74mil|Location2.Y=2327.465mil|Absolute=True">TX1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=3149.006mil|Location1.Y=576.22mil|Location2.Y=3127.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2045mil|Location2.X=3149.006mil|Location1.Y=576.22mil|Location2.Y=3127.465mil|Absolute=True">TX2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Users\Documents\%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1\8%E3%80%81%E6%AF%95%E8%AE%BE\5%E3%80%81%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E7%9A%84%E6%99%AF%E7%82%B9%E6%B8%B8%E8%A7%88%E8%AE%BE%E8%AE%A1\%E7%A1%AC%E4%BB%B6\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%8E%9F%E7%90%86%E5%9B%BE\%E6%99%BA%E6%85%A7%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%88%AA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4510mil|Location1.Y=2252.535mil|Location2.Y=4208.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Users\Documents\寒假任务\8、毕设\5、智慧景区的景点游览设计\硬件\智慧景区原理图\智慧景区导航.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2262.535mil|Location2.X=4510mil|Location1.Y=2252.535mil|Location2.Y=4208.528mil|Absolute=True">TX3</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mm
+			</a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
